@@ -1,0 +1,22 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args){
+        List<Student> list = new ArrayList<>();
+        list.add(new Student(3.8, "SV-01", "NGuyễn An"));
+        list.add(new Student(3.9, "SV-02", "Trần Bình"));
+        list.add(new Student(3.2, "SV-03", "Lê Cường"));
+        list.add(new Student(3.5, "SV-04", "Phạm Dũng"));
+
+        Collections.sort(list, new GpaComparator());
+
+        System.out.println("DANH SÁCH HỌC BỎNG");
+        int rank = 1;
+        for(Student student : list){
+            System.out.printf("Hạng %2d| %5s| %15s| GPA: %.2f|\n", rank, student.getId(), student.getName(), student.getGpa());
+            rank++;
+        }
+    }
+}
